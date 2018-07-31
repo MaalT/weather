@@ -3,7 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const request = require('request');
 const app = express()
-const apiKey = 'e3cce80cfb2e503b8549feffd23a1f8c';
+const apiKey = process.env.WEATHER_API_KEY;
 const dotenv = require('dotenv').config();
 
 app.use(express.static('public'));
