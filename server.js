@@ -3,8 +3,10 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const request = require('request');
 const app = express()
+const dotenv = require('dotenv').config()
+
 const apiKey = process.env.WEATHER_API_KEY;
-const dotenv = require('dotenv').config();
+
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -15,21 +17,21 @@ app.get('/', function (req, res) {
 
 })
 
-app.post('/', function (req, res) {
+app.post('/weather', function (req, res) {
   let city = req.body.city;
   let url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&appid=' + apiKey;
 
 	request(url, function (err, response, body) {
     if(err){    	
-      res.render('index', {weather: null, error: 'Error, please try again'});
+      res.render('weather', {weather: null, error: 'Error, please try again'});
     } else {
       let weather = JSON.parse(body);
       console.log(weather)
       if(weather.main == undefined){
-        res.render('index', {weather: null, error: 'Error, please try again'});
+        res.render('weather', {weather: null, error: 'Error, please try again'});
       } else {
         let weatherText = 'It is '+ weather.main.temp + ' degrees in '+ weather.name + ' !';
-        res.render('index', {        	
+        res.render('weather', {        	
         	error: null,
         	weather : JSON.stringify(weather),
         	weather: weatherText, 
