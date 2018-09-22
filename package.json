@@ -12,6 +12,9 @@
     "type": "git",
     "url": "weather"
   },
+  "engines":{
+    "node": "^8.0.0"
+  },
   "author": "michelle ler",
   "license": "ISC",
   "dependencies": {

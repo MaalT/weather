@@ -1,0 +1,7 @@
+{
+	"name": "Michelle's Weather App",
+	"description": "An app to check the weather of cities around the world",
+	"repository": "http://github.com/michowler/weather",
+	"keywords": ["node", "express", "static", "api"],
+	"image": "heroku/nodejs"
+}
