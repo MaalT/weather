@@ -4,9 +4,7 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const app = express()
 const dotenv = require('dotenv').config()
-
 const apiKey = process.env.WEATHER_API_KEY;
-
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -30,7 +28,7 @@ app.post('/weather', function (req, res) {
       if(weather.main == undefined){
         res.render('weather', {weather: null, error: 'Error, please try again'});
       } else {
-        let weatherText = 'It is '+ weather.main.temp + ' degrees in '+ weather.name + ' !';
+        let weatherText = 'It is '+ ((weather.main.temp -32)/1.8) + ' degrees in '+ weather.name + ' !';
         res.render('weather', {        	
         	error: null,
         	weather : JSON.stringify(weather),

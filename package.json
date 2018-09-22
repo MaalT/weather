@@ -4,8 +4,8 @@
   "description": "weather using nodejs and express",
   "main": "server.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon --watch src src/server.js",    
+    "start": "node server.js",
+    "dev": "nodemon --watch src server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +19,7 @@
     "dotenv": "^6.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "mongodb": "^3.1.1",
     "request": "^2.87.0"
   },
   "devDependencies": {
